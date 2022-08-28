@@ -27,37 +27,35 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService empService;
 
-	
-	// get all employees
-	@GetMapping("/employees")
-	public ResponseEntity<List<Employee>> getAllEmployees(){
-        return new ResponseEntity<List<Employee>>(empService.getAllEmployees(), HttpStatus.OK) ;
-    }	
-	
 	// create employee rest api
 	@PostMapping("/employees")
-	public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee){
-        return new ResponseEntity<Employee>(empService.saveEmployee(employee), HttpStatus.CREATED);
-    }
-	
+	public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee) {
+		return new ResponseEntity<Employee>(empService.saveEmployee(employee), HttpStatus.CREATED);
+	}
+
+	// get all employees
+	@GetMapping("/employees")
+	public ResponseEntity<List<Employee>> getAllEmployees() {
+		return new ResponseEntity<List<Employee>>(empService.getAllEmployees(), HttpStatus.OK);
+	}
+
 	// get employee by id rest api
 	@GetMapping("/employees/{id}")
-	public ResponseEntity<Employee> getEmployeebyId(@PathVariable long id){
-        return  new ResponseEntity<Employee>(empService.getEmployeeById(id), HttpStatus.OK);
-    }
-	
+	public ResponseEntity<Employee> getEmployeebyId(@PathVariable long id) {
+		return new ResponseEntity<Employee>(empService.getEmployeeById(id), HttpStatus.OK);
+	}
+
 	// update employee rest api
-	
+
 	@PutMapping("/employees/{id}")
-	public ResponseEntity<Employee> updateEmployee(@PathVariable long id,@RequestBody Employee employee){
-        return new ResponseEntity<Employee>(empService.updateEmployee(employee, id), HttpStatus.OK);
-    }
-	
+	public ResponseEntity<Employee> updateEmployee(@PathVariable long id, @RequestBody Employee employee) {
+		return new ResponseEntity<Employee>(empService.updateEmployee(employee, id), HttpStatus.OK);
+	}
+
 	// delete employee rest api
 	@DeleteMapping("/employees/{id}")
-	public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable Long id){
-		return new ResponseEntity<>(empService.deleteEmployee(id),HttpStatus.OK);
+	public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable Long id) {
+		return new ResponseEntity<>(empService.deleteEmployee(id), HttpStatus.OK);
 	}
-	
-	
+
 }

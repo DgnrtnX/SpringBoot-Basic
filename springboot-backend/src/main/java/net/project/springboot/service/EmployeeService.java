@@ -7,8 +7,12 @@ import net.project.springboot.entity.Employee;
 
 public interface EmployeeService {
     Employee saveEmployee(Employee employee);
-    List<Employee>  getAllEmployees();
+
+    List<Employee> getAllEmployees();
+
     Employee getEmployeeById(long id);
+
     Employee updateEmployee(Employee employee, long id);
+
     Map<String, Boolean> deleteEmployee(long id);
 }

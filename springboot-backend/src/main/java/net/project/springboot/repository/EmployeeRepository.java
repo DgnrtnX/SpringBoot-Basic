@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import net.project.springboot.entity.Employee;
 
 @Repository
-public interface EmployeeRepository extends JpaRepository<Employee, Long>{
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
 }
